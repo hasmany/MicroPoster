@@ -1,15 +1,3 @@
-
-
-# RSpec.describe "UserPages", :type => :request do
-#   describe "GET /user_pages" do
-#     it "works! (now write some real specs)" do
-#       get user_pages_index_path
-#       expect(response.status).to be(200)
-#     end
-#   end
-# end
-
-
 require 'spec_helper'
 
 describe "User pages" do
@@ -21,6 +9,13 @@ describe "User pages" do
 
     it { should have_content('Sign up') }
     it { shave have_title(full_title('Sign up')) }
+  end
+
+  describe "profile page" do
+    #replace with code to make a user variable
+    before { visit user_path(user)  }
+    it { should have_content(user.name) }
+    it { should have_title(user.name)}
   end
 
 end
